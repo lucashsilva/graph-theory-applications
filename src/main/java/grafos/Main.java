@@ -18,22 +18,22 @@ import java.rmi.server.ExportException;
 public final class Main {
     public static void main(String[] args) throws MalformedURLException, ExportException, org.jgrapht.io.ExportException, ImportException {
         Graph<Country, Edge> graph = createGraph();
-
-        System.out.println(graph.toString());
+        
     }
 
     private static Graph<Country, Edge> createGraph() throws ImportException {
-    	Graph<Country, Edge> graph = new SimpleWeightedGraph<>(Edge.class);
+    	Graph<Country, Edge> graph = new SimpleWeightedGraph<Country, Edge>(Edge.class);
     	
     	VertexProvider<Country> vertexProvider = new GraphVertexProvider();
     	EdgeProvider<Country, Edge> edgeProvider = new GraphEdgeProvider();
    
     	CSVImporter<Country, Edge> importer = new CSVImporter<Country, Edge>(vertexProvider, edgeProvider);
     	
-    	File csv = new File("./src/assets/edges.csv");
+    	File csv = new File("./src/assets/edges_with_diff.csv");
     	
+    	importer.setFormat(CSVFormat.EDGE_LIST);
     	importer.importGraph(graph, csv);
-
+    	
         return graph;
     }
 }

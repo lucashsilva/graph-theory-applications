@@ -7,6 +7,7 @@ public class Edge {
 	
 	public Edge(Country from, Country to, String label) {
 		super();
+		System.out.println(from.getId() + " " + to.getId() + "\n");
 		this.from = from;
 		this.to = to;
 		this.label = label;
