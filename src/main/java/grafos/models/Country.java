@@ -17,7 +17,7 @@ public class Country {
 	
 	@Override
 	public String toString() {
-		return "Country [id=" + id + "]";
+		return id;
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package grafos.models;
 
-public class Edge {
+import org.jgrapht.graph.DefaultWeightedEdge;
+
+public class Edge extends DefaultWeightedEdge  {
 	private Country from;
 	private Country to;
 	private String label;
@@ -75,6 +77,6 @@ public class Edge {
 
 	@Override
 	public String toString() {
-		return "Edge [label=" + label + "]";
+		return " " + this.getWeight();
 	}
 }

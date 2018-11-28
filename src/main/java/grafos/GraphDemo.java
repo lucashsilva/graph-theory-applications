@@ -12,6 +12,7 @@ import org.jgrapht.ListenableGraph;
 import org.jgrapht.ext.JGraphXAdapter;
 import org.jgrapht.graph.DefaultListenableGraph;
 import org.jgrapht.graph.Pseudograph;
+import org.jgrapht.graph.WeightedPseudograph;
 import org.jgrapht.io.CSVFormat;
 import org.jgrapht.io.CSVImporter;
 import org.jgrapht.io.EdgeProvider;
@@ -78,7 +79,7 @@ public final class GraphDemo extends JApplet {
     }
 
     private static ListenableGraph<Country, Edge> createGraph() throws ImportException {
-    	ListenableGraph<Country, Edge> graph = new DefaultListenableGraph(new Pseudograph<Country, Edge>(Edge.class));
+    	ListenableGraph<Country, Edge> graph = new DefaultListenableGraph(new WeightedPseudograph<Country, Edge>(Edge.class));
     	
     	VertexProvider<Country> vertexProvider = new GraphVertexProvider();
     	EdgeProvider<Country, Edge> edgeProvider = new GraphEdgeProvider();
